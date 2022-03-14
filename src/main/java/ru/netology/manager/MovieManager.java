@@ -10,29 +10,10 @@ import ru.netology.domain.Movie;
 @Data
 public class MovieManager {
     private Movie[] movies = new Movie[0];
-    private int MovieLimit = 10;
+    private int movieLimit = 10;
 
     public MovieManager(int movieLimit) {
-        MovieLimit = movieLimit;
-    }
-
-    public static void main(String[] args) {
-        Movie first = new Movie(1, "bloodshot-1", "Бладшот", "Боевик");
-        Movie second = new Movie(2, "onward-1", "Вперёд", "Мультфильм");
-        Movie third = new Movie(3, "hotel-belgrade-1", "Отель Белград", "Комедия");
-        Movie fourth = new Movie(4, "gentlemen-1", "Джентельмены", "Боевик");
-        Movie fifth = new Movie(5, "invisible-man-1", "Человек-невидимка", "Ужасы");
-        Movie sixth = new Movie(6, "trolls-world-tour-1", "Тролли.Мировой тур", "Мультфильм");
-        Movie seventh = new Movie(7, "number-one-1", "Номер один", "Комедия");
-
-        MovieManager mov = new MovieManager();
-        mov.save(first);
-        mov.save(second);
-        mov.save(third);
-        mov.save(fourth);
-        mov.save(fifth);
-        mov.save(sixth);
-        mov.save(seventh);
+        this.movieLimit = movieLimit;
     }
 
     public Movie[] findAll() {
@@ -50,10 +31,10 @@ public class MovieManager {
 
     public Movie[] getLastMovie() {
         int resultLength;
-        if (movies.length <= MovieLimit) {
+        if (movies.length <= movieLimit) {
             resultLength = movies.length;
         } else {
-            resultLength = MovieLimit;
+            resultLength = movieLimit;
         }
         Movie[] movie = findAll();
         Movie[] result = new Movie[resultLength];
